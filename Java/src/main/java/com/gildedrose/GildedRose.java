@@ -14,47 +14,33 @@ class GildedRose {
         for (Item item : items) {
             switch (item.name) {
                 case AGED_BRIE:
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
+                    item.increaseQualityIfNotMax();
                     break;
                 case BACKSTAGE_PASSES:
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-
-                        if (item.sellIn <= 10) {
-                            if (item.quality < 50) {
-                                item.quality = item.quality + 1;
-                            }
-                        }
-
-                        if (item.sellIn <= 5) {
-                            if (item.quality < 50) {
-                                item.quality = item.quality + 1;
-                            }
-                        }
+                    item.increaseQualityIfNotMax();
+                    if (item.sellIn <= 10) {
+                        item.increaseQualityIfNotMax();
+                    }
+                    if (item.sellIn <= 5) {
+                        item.increaseQualityIfNotMax();
                     }
                     break;
                 case SULFURAS_HAND_OF_RAGNAROS:
                     break;
                 default:
-                    if (item.quality > 0) {
-                        item.quality = item.quality - 1;
-                    }
+                    item.decreaseQualityIfNotMin();
                     break;
             }
 
             if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
             } else {
-                item.sellIn = item.sellIn - 1;
+                item.decreaseSellin();
             }
 
             if (item.sellIn < 0) {
                 switch (item.name) {
                     case AGED_BRIE:
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
+                        item.increaseQualityIfNotMax();
                         break;
                     case BACKSTAGE_PASSES:
                         item.quality = 0;
@@ -62,12 +48,11 @@ class GildedRose {
                     case SULFURAS_HAND_OF_RAGNAROS:
                         continue;
                     default:
-                        if (item.quality > 0) {
-                            item.quality = item.quality - 1;
-                        }
+                        item.decreaseQualityIfNotMin();
                         break;
                 }
             }
         }
     }
+
 }
