@@ -2,6 +2,8 @@ package com.gildedrose;
 
 public class Item {
 
+    public static final int MAX_QUALITY = 50;
+    public static final int MIN_QUALITY = 0;
     public String name;
 
     public int sellIn;
@@ -20,18 +22,18 @@ public class Item {
     }
 
     void updateQualityIfNotMax() {
-        if (quality < 50) {
-            quality = quality + 1;
+        if (quality < MAX_QUALITY) {
+            quality++;
         }
     }
 
     void decreaseQualityIfNotMin() {
-        if (quality > 0) {
-            quality = quality - 1;
+        if (quality > MIN_QUALITY) {
+            quality--;
         }
     }
 
     void decreaseSellIn() {
-        sellIn = sellIn - 1;
+        sellIn--;
     }
 }
