@@ -13,29 +13,21 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
             if (item.name.equals(AGED_BRIE)) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
+                updateQualityIfNotMax(item);
             } else if (item.name.equals(BACKSTAGE_PASSES)) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+                updateQualityIfNotMax(item);
 
-                    if (item.sellIn < 11) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
+                if (item.sellIn < 11) {
+                    updateQualityIfNotMax(item);
+                }
 
-                    if (item.sellIn < 6) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
+                if (item.sellIn < 6) {
+                    updateQualityIfNotMax(item);
                 }
             } else {
-                if (item.quality > 0) {
-                    if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-                    } else {
+                if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+                } else {
+                    if (item.quality > 0) {
                         item.quality = item.quality - 1;
                     }
                 }
@@ -48,22 +40,26 @@ class GildedRose {
 
             if (item.sellIn < 0) {
                 if (item.name.equals(AGED_BRIE)) {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
+                    updateQualityIfNotMax(item);
                 } else {
                     if (item.name.equals(BACKSTAGE_PASSES)) {
-                        item.quality = item.quality - item.quality;
+                        item.quality = 0;
                     } else {
-                        if (item.quality > 0) {
                             if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
                                 continue;
                             }
+                        if (item.quality > 0) {
                             item.quality = item.quality - 1;
                         }
                     }
                 }
             }
+        }
+    }
+
+    private void updateQualityIfNotMax(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
         }
     }
 }
