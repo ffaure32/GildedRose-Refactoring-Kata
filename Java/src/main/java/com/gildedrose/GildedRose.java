@@ -24,12 +24,10 @@ class GildedRose {
                 if (item.sellIn < 6) {
                     updateQualityIfNotMax(item);
                 }
+            } else if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
             } else {
-                if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-                } else {
-                    if (item.quality > 0) {
-                        item.quality = item.quality - 1;
-                    }
+                if (item.quality > 0) {
+                    item.quality = item.quality - 1;
                 }
             }
 
@@ -41,16 +39,12 @@ class GildedRose {
             if (item.sellIn < 0) {
                 if (item.name.equals(AGED_BRIE)) {
                     updateQualityIfNotMax(item);
+                } else if (item.name.equals(BACKSTAGE_PASSES)) {
+                    item.quality = 0;
+                } else if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
                 } else {
-                    if (item.name.equals(BACKSTAGE_PASSES)) {
-                        item.quality = 0;
-                    } else {
-                            if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-                                continue;
-                            }
-                        if (item.quality > 0) {
-                            item.quality = item.quality - 1;
-                        }
+                    if (item.quality > 0) {
+                        item.quality = item.quality - 1;
                     }
                 }
             }
