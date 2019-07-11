@@ -2,7 +2,7 @@ package com.gildedrose;
 
 import org.approvaltests.combinations.CombinationApprovals;
 import org.approvaltests.legacycode.Range;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class GildedRoseApprovalTest {
 
