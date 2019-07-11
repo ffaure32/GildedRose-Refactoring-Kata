@@ -18,4 +18,20 @@ public class Item {
    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
+
+    void decreaseQualityIfNotMin() {
+        if (quality > 0) {
+            quality = quality - 1;
+        }
+    }
+
+    void increaseQualityIfNotMax() {
+        if (quality < 50) {
+            quality = quality + 1;
+        }
+    }
+
+    void decreaseSellIn() {
+        sellIn = sellIn - 1;
+    }
 }

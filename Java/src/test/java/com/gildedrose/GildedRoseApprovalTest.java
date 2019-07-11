@@ -2,8 +2,11 @@ package com.gildedrose;
 
 import org.approvaltests.combinations.CombinationApprovals;
 import org.approvaltests.legacycode.Range;
-import org.junit.Test;
+import org.approvaltests.reporters.JunitReporter;
+import org.approvaltests.reporters.UseReporter;
+import org.junit.jupiter.api.Test;
 
+@UseReporter(JunitReporter.class)
 public class GildedRoseApprovalTest {
 
     @Test
