@@ -10,7 +10,7 @@ public class GildedRoseApprovalTest {
     public void testAllCombinations() throws Exception {
 
         String[] items = { "Foo", "Aged Brie", "Backstage passes to a TAFKAL80ETC concert",
-                "Sulfuras, Hand of Ragnaros", "Conjured" };
+                "Sulfuras, Hand of Ragnaros" };
         Integer[] sellins = Range.get(-1, 100);
         Integer[] qualities = Range.get(-1, 100);
         CombinationApprovals.verifyAllCombinations(this::checkItem, items, sellins, qualities);
