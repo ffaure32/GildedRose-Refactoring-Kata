@@ -19,7 +19,7 @@ public class Item {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
-    void increaseQualityIfNotMax() {
+    public void increaseQualityIfNotMax() {
         if (quality < 50) {
             quality = quality + 1;
         }

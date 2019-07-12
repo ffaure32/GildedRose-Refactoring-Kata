@@ -17,10 +17,10 @@ class GildedRose {
         switch (item.name) {
             case "Aged Brie":
                 item.increaseQualityIfNotMax();
-                item.decreaseSellIn();
-                if (item.sellIn < 0) {
+                if (item.sellIn <= 0) {
                     item.increaseQualityIfNotMax();
                 }
+                item.decreaseSellIn();
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
                 item.increaseQualityIfNotMax();
@@ -30,19 +30,19 @@ class GildedRose {
                 if (item.sellIn < 6) {
                     item.increaseQualityIfNotMax();
                 }
-                item.decreaseSellIn();
-                if (item.sellIn < 0) {
+                if (item.sellIn <= 0) {
                     item.quality = 0;
                 }
+                item.decreaseSellIn();
                 break;
             case "Sulfuras, Hand of Ragnaros":
                 break;
             default:
                 item.decreaseQualityIfNotMin();
-                item.decreaseSellIn();
-                if (item.sellIn < 0) {
+                if (item.sellIn <= 0) {
                     item.decreaseQualityIfNotMin();
                 }
+                item.decreaseSellIn();
                 break;
         }
     }
