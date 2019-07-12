@@ -25,7 +25,7 @@ public class Item {
         }
     }
 
-    void decreaseQualityIfNotMin() {
+    public void decreaseQualityIfNotMin() {
         if (quality > 0) {
             quality = quality - 1;
         }
