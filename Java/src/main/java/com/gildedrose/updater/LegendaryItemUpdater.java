@@ -7,4 +7,10 @@ public class LegendaryItemUpdater implements ItemUpdater {
     public void updateQuality(Item oldBrie) {
         // LEGENDARY ITEMS DO NOT CHANGE
     }
+
+    @Override
+    public void updateSellIn(Item item) {
+        // LEGENDARY ITEMS DO NOT CHANGE
+    }
 }
+

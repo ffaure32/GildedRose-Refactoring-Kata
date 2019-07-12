@@ -65,4 +65,29 @@ public class ItemUpdaterTest {
         assertEquals(expectedQualityAfterUpdate, legendary.quality);
     }
 
+    @Test
+    public void sellInDecreaseByDefault() {
+        // ARRANGE
+        var item = new Item("default", 5, 3);
+        ItemUpdater updater = new DefaultItemUpdater();
+
+        // ACT
+        updater.updateSellIn(item);
+
+        // ASSERT
+        assertEquals(4, item.sellIn);
+    }
+
+    @Test
+    public void sellInDoesntChangeForLegendaryItem() {
+        // ARRANGE
+        var item = new Item("legendary", 5, 3);
+        ItemUpdater updater = new LegendaryItemUpdater();
+
+        // ACT
+        updater.updateSellIn(item);
+
+        // ASSERT
+        assertEquals(5, item.sellIn);
+    }
 }

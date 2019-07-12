@@ -31,7 +31,7 @@ public class Item {
         }
     }
 
-    void decreaseSellIn() {
+    public void decreaseSellIn() {
         sellIn = sellIn - 1;
     }
 }
