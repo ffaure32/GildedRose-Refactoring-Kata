@@ -10,8 +10,8 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (Item item : items) {
-            ItemUpdater updater = getItemUpdater(item);
+        for (var item : items) {
+            var updater = getItemUpdater(item);
             updater.updateQuality(item);
             updater.updateSellIn(item);
         }

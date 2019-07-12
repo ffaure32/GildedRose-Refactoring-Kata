@@ -65,6 +65,20 @@ public class ItemUpdaterTest {
         assertEquals(expectedQualityAfterUpdate, legendary.quality);
     }
 
+    @ParameterizedTest
+    @CsvSource({"12,6,4", "0,6,2"})
+    public void ProgeriaItemsLoseQualityFaster(int sellin, int originQuality, int expectedQualityAfterUpdate) {
+        // ARRANGE
+        var progeriaItem = new Item("progeria", sellin, originQuality);
+        ItemUpdater updater = new AgingBadItemUpdater();
+
+        // ACT
+        updater.updateQuality(progeriaItem);
+
+        // ASSERT
+        assertEquals(expectedQualityAfterUpdate, progeriaItem.quality);
+    }
+
     @Test
     public void sellInDecreaseByDefault() {
         // ARRANGE
