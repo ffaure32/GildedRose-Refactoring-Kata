@@ -2,11 +2,11 @@ package com.gildedrose;
 
 public class Item {
 
-    public String name;
+    private String name;
 
-    public int sellIn;
+    private int sellIn;
 
-    public int quality;
+    private int quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = name;
@@ -17,5 +17,37 @@ public class Item {
    @Override
    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
+    }
+
+    void decreaseQualityIfNotMin() {
+        if (quality > 0) {
+            quality = quality - 1;
+        }
+    }
+
+    void resetQuality() {
+        quality = 0;
+    }
+
+    void decreaseSellIn() {
+        sellIn = sellIn - 1;
+    }
+
+    void increaseQualityIfNotMax() {
+        if (quality < 50) {
+            quality = quality + 1;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSellIn() {
+        return sellIn;
+    }
+
+    public int getQuality() {
+        return quality;
     }
 }

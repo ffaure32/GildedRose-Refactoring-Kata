@@ -19,7 +19,7 @@ public class GildedRoseApprovalTest {
     public Item checkItem(String item, Integer sellin, Integer quality) {
         Item[] items = new Item[] { new Item(item, sellin, quality) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateItems();
         return items[0];
     }
 
